@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TERETERE — Carta Digital | Fusión Venezolana y Española</title>
+  <meta
+    name="description"
+    content="Carta digital de Teretere en El Prat de Llobregat, Barcelona. Fusión venezolana y española: arepas, empanadas, bocadillos, hamburguesas, perritos calientes y tapas."
+  />
+  <meta name="theme-color" content="#FAF4EC" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo-teretere.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Barra superior fija con marca y acceso rápido -->
+  <header class="topbar" id="topbar">
+    <div class="container topbar__inner">
+      <a href="#inicio" class="topbar__brand" aria-label="Ir al inicio de Teretere">
+        <img
+          src="assets/logo-teretere.svg"
+          alt="Logo Teretere"
+          class="topbar__logo"
+          width="38"
+          height="38"
+        />
+        <div class="topbar__titles">
+          <span class="topbar__name">TERETERE</span>
+          <span class="topbar__sub">Fusión Venezolana y Española</span>
+        </div>
+      </a>
+
+      <div class="topbar__actions">
+        <a href="tel:+34631467207" class="btn-outline" aria-label="Llamar para reservas y pedidos">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <span>631 46 72 07</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Portada editorial inspirada en la portada del tríptico -->
+  <section class="hero" id="inicio">
+    <div class="container">
+      <div class="cover-frame">
+        <div class="cover-frame__inner">
+          <div class="cover-logo-wrap">
+            <img
+              src="assets/logo-teretere.svg"
+              alt="Logotipo oficial de Teretere"
+              class="cover-logo"
+              width="124"
+              height="124"
+            />
+          </div>
+          <h1 class="cover-title">TERETERE</h1>
+          <p class="cover-tagline">• FUSIÓN VENEZOLANA Y ESPAÑOLA •</p>
+
+          <div class="tricolor-divider" aria-hidden="true">
+            <span class="line"></span>
+            <span class="dot dot--yellow"></span>
+            <span class="dot dot--blue"></span>
+            <span class="dot dot--red"></span>
+            <span class="line"></span>
+          </div>
+
+          <div class="cover-carta-badge">
+            <span class="line"></span>
+            <span class="cover-carta-text">CARTA</span>
+            <span class="line"></span>
+          </div>
+
+          <p class="cover-specialties">AREPAS · EMPANADAS · TAPAS · PARRILLA</p>
+
+          <div class="hero-quick-meta">
+            <span>Avinguda del Remolar, 71 · El Prat de Llobregat</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Barra sticky de filtros y búsqueda -->
+  <nav class="controls-bar" aria-label="Navegación y búsqueda de la carta">
+    <div class="container controls-bar__inner">
+      <div class="search-box">
+        <svg class="search-box__icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.3-4.3"></path>
+        </svg>
+        <input
+          type="search"
+          id="searchInput"
+          class="search-box__input"
+          placeholder="Buscar plato, ingrediente (ej. aguacate, queso, tequeños)..."
+          aria-label="Buscar en la carta"
+          autocomplete="off"
+        />
+        <button type="button" id="clearSearchBtn" class="search-box__clear" aria-label="Limpiar búsqueda" hidden>
+          ✕
+        </button>
+      </div>
+
+      <div class="category-pills" id="categoryPills" role="tablist" aria-label="Categorías de la carta">
+        <!-- Renderizado dinámico en JS -->
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contenido principal de la carta -->
+  <main class="container menu-main" id="carta">
+    <div id="searchStatus" class="search-status" hidden></div>
+
+    <div class="menu-grid" id="menuGrid">
+      <!-- Secciones renderizadas dinámicamente desde app.js -->
+    </div>
+
+    <div id="emptyState" class="empty-state" hidden>
+      <p class="empty-state__title">No encontramos platos con esa búsqueda</p>
+      <p class="empty-state__desc">Prueba con otro ingrediente o vuelve a ver toda la carta.</p>
+      <button type="button" class="btn-outline" id="resetFiltersBtn">Ver toda la carta</button>
+    </div>
+
+    <!-- Panel de Información del Restaurante (inspirado en el panel central de la carta física) -->
+    <section class="info-panel" id="contacto" aria-labelledby="info-heading">
+      <div class="info-panel__card">
+        <div class="info-panel__brand">
+          <img
+            src="assets/logo-teretere.svg"
+            alt="Logo Teretere"
+            class="info-panel__logo"
+            width="84"
+            height="84"
+          />
+          <h2 id="info-heading" class="info-panel__title">TERETERE</h2>
+          <p class="info-panel__sub">• FUSIÓN VENEZOLANA Y ESPAÑOLA •</p>
+          <div class="tricolor-divider tricolor-divider--sm" aria-hidden="true">
+            <span class="line"></span>
+            <span class="dot dot--yellow"></span>
+            <span class="dot dot--blue"></span>
+            <span class="dot dot--red"></span>
+            <span class="line"></span>
+          </div>
+        </div>
+
+        <div class="info-panel__grid">
+          <div class="info-block">
+            <span class="info-block__label">DÓNDE ESTAMOS</span>
+            <a
+              href="https://maps.google.com/?q=Avinguda+del+Remolar+71,+08820+El+Prat+de+Llobregat,+Barcelona"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="info-block__value info-block__link"
+            >
+              Avinguda del Remolar, 71<br />
+              08820 El Prat de Llobregat · Barcelona
+            </a>
+          </div>
+
+          <div class="info-block">
+            <span class="info-block__label">RESERVAS Y PEDIDOS</span>
+            <a href="tel:+34631467207" class="info-block__value info-block__phone">
+              631 46 72 07
+            </a>
+          </div>
+
+          <div class="info-block">
+            <span class="info-block__label">SÍGUENOS</span>
+            <a
+              href="https://www.instagram.com/tereterevenezuela/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="info-block__value info-block__link"
+            >
+              @tereterevenezuela
+            </a>
+          </div>
+        </div>
+
+        <footer class="info-panel__legal">
+          <p>Suplemento 0,50 € · Precios en euros, IVA incluido.</p>
+          <p>Consulta a nuestro personal sobre alérgenos e intolerancias.</p>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <!-- Barra inferior rápida en móvil -->
+  <div class="mobile-dock" aria-label="Acciones rápidas">
+    <a href="tel:+34631467207" class="mobile-dock__btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+      </svg>
+      <span>Llamar</span>
+    </a>
+    <a
+      href="https://maps.google.com/?q=Avinguda+del+Remolar+71,+08820+El+Prat+de+Llobregat,+Barcelona"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mobile-dock__btn"
+    >
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+        <circle cx="12" cy="10" r="3"></circle>
+      </svg>
+      <span>Ubicación</span>
+    </a>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
